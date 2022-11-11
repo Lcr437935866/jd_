@@ -1,0 +1,32 @@
+姓名：JD_Auto_Beans
+
+在：
+  workflow_dispatch：
+  推：
+    分支机构：
+- 主
+  时间表：
+cron：0 13,20 * * *
+
+恩v：
+  sckey：${{ secrets.sckey }}
+  cookie：${{ secrets.cookies }}
+
+工作：
+  构建：
+    运行：ubuntu-latest
+
+    步骤：
+-名称：结账代码
+        使用：action/checkout@v2
+
+-名称：使用Node.js
+        用途：action/setup-node@v3
+        与：
+          节点版本："16"
+
+-名称：运行安装
+        运行：npm安装
+
+-名称：运行脚本
+        运行：节点index.js
